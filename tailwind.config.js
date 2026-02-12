@@ -1,21 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Midnight Harbor Palette
         harbor: {
-          void: "#0a0a1a",   // Deep Background
-          navy: "#1e293b",   // Card Surfaces
-          accent: "#38bdf8", // Primary Action
+          void: "#0a0a1a",
+          navy: "#1e293b",
         }
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "sans-serif"], // General UI
-        data: ["Lexend", "sans-serif"],           // Numbers & Charts
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        data: ["Lexend", "sans-serif"],
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")], // This is the correct way
 }
