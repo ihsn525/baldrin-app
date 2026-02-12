@@ -1,23 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Lexend:wght@600;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-harbor-void text-slate-50 antialiased;
-    font-family: 'Plus Jakarta Sans', sans-serif; /* */
-  }
+:root {
+  --mh-navy: #05050a;
+  --mh-deep-blue: #0a0c1a;
+  --mh-teal: #14b8a6;
+  --mh-orange: #f97316;
 }
 
-@layer components {
-  /* The "Master" Glassmorphism Utility */
-  .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl;
-  }
-  
-  .glass-button {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all px-4 py-2 rounded-xl;
-  }
+body {
+  background-color: var(--mh-navy);
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-lexend { font-family: 'Lexend', sans-serif; }
+
+/* --- ENHANCED GLASSMORPHISM --- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- DYNAMIC KPI GLOWS --- */
+.glow-text-teal {
+  text-shadow: 0 0 20px rgba(20, 184, 166, 0.4), 
+               0 0 2px rgba(20, 184, 166, 1);
+}
+
+.glow-text-orange {
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.4), 
+               0 0 2px rgba(249, 115, 22, 1);
+}
+
+/* --- CUSTOM UTILITIES --- */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }

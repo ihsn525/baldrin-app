@@ -1,14 +1,17 @@
-import React from 'react';
+import React from "react";
 
-interface GlassCardProps {
+interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
 }
 
-export const GlassCard = ({ children, className = "" }: GlassCardProps) => {
+export function GlassCard({ children, className = "", ...props }: GlassCardProps) {
   return (
-    <div className={`glass-card ${className}`}>
+    <div
+      className={`glass-panel rounded-2xl p-6 transition-all duration-300 ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
-};
+}
